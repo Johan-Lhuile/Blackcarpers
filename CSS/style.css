@@ -1,0 +1,175 @@
+@font-face {
+  font-family: "julee";
+  src: url(Julee-Regular.ttf);
+}
+
+body {
+  font-family: "julee";
+  background: url(../MEDIA/BG.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#logo {
+  margin: 10px;
+}
+
+nav {
+  border-bottom: solid 3px #36FF24;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 150px;
+} */
+
+h2 {
+  color: black;
+  font-size: 2em;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.583);
+  background-color: #36FF24;
+  border-radius: 15px;
+  box-shadow: 2px 2px 8px 0px #36FF24;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 6px 40px;
+  font-family: "julee";
+}
+
+a {
+  text-decoration: none;
+}
+
+h2:hover {
+  animation-duration: 1.2s;
+  transform: scale(1.1);
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+legend {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 5px;
+  margin-top: 10px;
+  font-size: 1.5em;
+}
+
+textarea {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+form {
+  background-color: #1E1E1E;
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px 0px #36FF24;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  justify-content: space-around;
+  margin-top: 150px;
+  padding: 20px;
+  color: #36FF24;
+}
+
+footer {
+  background-color: rgb(0, 0, 0);
+  color: rgba(255, 255, 255, 0.816);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+footer p {
+  font-size: 1.2em;
+}
+
+.main-H {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  font-size: 5em;
+  color: rgb(255, 255, 255);
+}
+
+.main img {
+  margin-top: 100px;
+}
+
+.main-partenaire {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #36FF24;
+  margin-top: 80px;
+  
+}
+
+.ion-social-facebook,
+.ion-ios-cart {
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.ion-social-facebook:hover,
+.ion-ios-cart:hover {
+  color: #6dff72;
+  transform: scale(1.1);
+}
+
+.main-enduro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.main-enduro img {
+  margin-top: 25px;
+}
+
+.main-enduro img:hover {
+  transform: scale(1.2);
+}
+
+.main-P {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  margin-bottom: 50px;
+  border: 3px solid #36FF24;
+  border-radius: 15px;
+  padding: 10px;
+}
+.main-partenaire a:hover {
+  transform: scale(1.02);
+}
+
+.text {
+  margin: 0 80px;
+}
+
+.text h3 {
+  display: flex;
+  font-size: 1.8em;
+}
+
+.text p {
+  font-size: 1.2em;
+}

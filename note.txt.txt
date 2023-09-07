@@ -1,0 +1,13 @@
+Voir pour que le logo laisse apparaitre Acceuil en Hover
+
+
+
+
+
+Le Background s'ecrase en largeur????
+
+
+RESPONSIVE:
+
+
+-mettre le logo en premier et le menu en dessous????
