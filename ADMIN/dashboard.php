@@ -25,17 +25,10 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
 ?>
 
     <div class="d-flex m-5">
-        <div class="sidebar d-flex flex-column w-25 bg-secondary m-5 rounded-4">
 
-            <a href=""><button type="button" class="btn btn-primary btn-lg m-3 ">LISTE DES MEMBRES</button></a>
-            <a href="./create_users.php"><button type="button" class="btn btn-primary btn-lg m-3">AJOUTER UN MEMBRE</button></a>
-            <a href=""><button type="button" class="btn btn-primary btn-lg m-3">PUBLICATIONS</button></a>
-            <a href=""><button type="button" class="btn btn-primary btn-lg m-3">PARTENAIRES</button></a>
-            <a href=""><button type="button" class="btn btn-primary btn-lg m-3">EVENEMENTS</button></a>
-            <a href="../SRC/deconnexion.php"><button type="button" class="btn btn-primary btn-lg m-3">DECONNEXION</button></a>
-
-        </div>
-
+        <?php
+        require_once '../INCLUDES/sidebar_admin.php';
+        ?>
         <div class="main bg-secondary w-75 m-5 rounded-4">
 
             <table class="table_patient">

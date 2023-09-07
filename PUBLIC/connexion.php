@@ -3,7 +3,7 @@ $title = "Connexion";
 require_once "../INCLUDES/header.php";
 require_once "../INCLUDES/menu.php";
 ?>
-
+<h2>Connexion reservée aux membres de l'association</h2>
 <form action="../SRC/connexion.php" class="mx-auto" method="POST">
   <fieldset>
     <legend>Connexion</legend>

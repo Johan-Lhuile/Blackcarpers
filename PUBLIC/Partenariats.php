@@ -16,7 +16,7 @@ require_once "../INCLUDES/menu.php";
             width="600px"
         /></a>
         <div class="text">
-          <h3>FATAL CARPE <a href="https://www.facebook.com/fatalcarpe"><i class="bi bi-facebook"></i></a><a href="http://fatal-carpe.fr/index.php?"><div class="ion-ios-cart"></div></a></h3>
+          <h3>FATAL CARPE <a href="https://www.facebook.com/fatalcarpe" target="_blank"><i class="bi bi-facebook"></i></a><a href="http://fatal-carpe.fr/index.php?" target="_blank"><div class="ion-ios-cart"></div></a></h3>
           <p> 
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
             odit vitae eligendi, ad expedita fuga officiis blanditiis quas

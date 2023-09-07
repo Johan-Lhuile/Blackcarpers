@@ -17,7 +17,6 @@ if ($_SESSION['USER']['role'] != 'USER') {
         $query = $pdo->query($sql);
 
         $user = $query->fetch();
-
     } catch (PDOException $e) {
         throw new PDOException($e->getMessage());
     }
@@ -28,24 +27,21 @@ if ($_SESSION['USER']['role'] != 'USER') {
 
 ?>
 
-    <h2>Bonjour, <?=$_SESSION['USER']['surname']?></h2>
+    <h2>Bonjour, <?= $_SESSION['USER']['surname'] ?></h2>
 
-    < class="d-flex m-5">
-        <div class="sidebar d-flex flex-column w-25 bg-secondary m-5 rounded-4">
+    <div class="d-flex m-5">
 
-            <a href=""><button type="button" class="btn btn-primary btn-lg m-3">LISTE DES MEMBRES</button></a>
-            <a href="./create_users.php"><button type="button" class="btn btn-primary btn-lg m-3">AJOUTER UN MEMBRE</button></a>
-            <a href=""><button type="button" class="btn btn-primary btn-lg m-3">PUBLICATIONS</button></a>
-            <a href=""><button type="button" class="btn btn-primary btn-lg m-3">PARTENAIRES</button></a>
-            <a href=""><button type="button" class="btn btn-primary btn-lg m-3">EVENEMENTS</button></a>
-            <a href="../SRC/deconnexion.php"><button type="button" class="btn btn-primary btn-lg m-3">DECONNEXION</button></a>
+        <?php
+        require_once '../INCLUDES/sidebar_user.php'
+        ?>
 
-        </div>
+
+    </div>
 
 
 
-<?php
+    <?php
 
     require_once '../INCLUDES/footer.php';
 }
-?>
+    ?>
