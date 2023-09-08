@@ -17,28 +17,26 @@ if ($_SESSION['USER']['role'] != 'USER') {
     <div class="d-flex m-5">
 
         <?php
-        require_once '../INCLUDES/sidebar_user.php'
+        require_once '../INCLUDES/sidebar_admin.php'
         ?>
 
 
     </div>
 
     <div>
-        <form action="traitement_newPost.php" method="POST" enctype="">
+        <form action="traitement_newEvenement.php" method="POST" enctype="">
 
-        <legend>Ajouter une publication</legend>
+        <legend>Ajouter un evenements</legend>
 
         <label for="titre">Titre:</label>
         <input type="text" name="titre">
 
-        <label for="description">Description:</label>
-        <input type="text" name="description">
 
-        <label for="image">Ajouter des photos:</label>
+        <label for="image">Ajouter les documents:</label>
         <input type="file" name="image" multiple>
 
         <button type="submit">Valider</button>
-        <p>Ta publication sera en ligne d'ici 24h, le temps qu'elle soit vérifiée par nos Administrateurs</p>
+        
         </form>
     </div>
 

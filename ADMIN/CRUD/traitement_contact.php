@@ -23,20 +23,6 @@ try {
 
     $query->execute();
 
-    // require_once "../../INCLUDES/mail.php";
-
-    // $adress = $email;
-    // $subject = "Bienvenue mon Intenable; ";
-    // $message = "Bonjour, $surname $name. 
-
-    // Bienvenue sur le site BLACKCARPERS. Vous avez éte rajouté par votre Capitaine.
-
-    // Vous pouvez vous connecter avec votre adresse mail et le mot de passe provisoire ci-dessous:<br>
-
-    //                      Mot de passe: $pass";
-
-    // sendMail($adress, $subject, $message);
-
 
     header('location:../dashboard.php');
 } catch (PDOException $e) {
