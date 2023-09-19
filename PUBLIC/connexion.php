@@ -3,23 +3,40 @@ $title = "Connexion";
 require_once "../INCLUDES/header.php";
 require_once "../INCLUDES/menu.php";
 ?>
-<h2>Connexion reservée aux membres de l'association</h2>
-<form action="../SRC/connexion.php" class="mx-auto" method="POST">
-  <fieldset>
-    <legend>Connexion</legend>
 
-    <div class="form-group">
-      <label for="email" class="form-label mt-4">Email </label>
-      <input type="email" name="email" class="form-control" id="email" placeholder="Entrer email">
+<div class="isolate bg-gradient-to-t from-[#36FF24]/20 to-black/60 px-6 py-24 sm:py-32 lg:px-8">
+  <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
+  </div>
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">CONNEXION </h2>
+    <p class="mt-2 text-lg leading-8 text-white">Reservée aux membres de l'association</p>
+  </div>
+  <form action="../SRC/connexion.php" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20">
+    <div class="sm:col-span-2">
+
+      <div class="sm:col-span-2">
+        <label for="email" class="block text-sm font-semibold leading-6 text-white">Email</label>
+        <div class="mt-2.5">
+          <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md border-0 px-3.5 py-2 mb-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      
+      <div class="sm:col-span-2">
+        <label for="pass" class="block text-sm font-semibold leading-6 text-white">Mot de passe</label>
+        <div class="mt-2.5">
+          <input type="password" name="pass" id="pass" autocomplete="pass" class="block w-full rounded-md border-0 px-3.5 py-2 mb-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      
+
     </div>
-    <div class="form-group">
-      <label for="pass" class="form-label mt-4 ">Password</label>
-      <input type="password" name="pass" class="form-control mb-5" id="pass" placeholder="Password" autocomplete="off">
+    <div class="mt-10">
+      <button type="submit" class="block w-full rounded-md bg-[#36FF24]/80 px-3.5 py-2.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-[#36FF24]/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Connexion</button>
     </div>
-    </fieldset>
-    <button type="submit" class="btn btn-light">Connexion</button>
-  </fieldset>
-</form>
+  </form>
+</div>
+
+
 
 <?php
 require_once "../INCLUDES/footer.php";

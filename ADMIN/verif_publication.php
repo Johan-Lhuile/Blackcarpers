@@ -21,6 +21,7 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
     $title = 'Verifications';
     require_once '../INCLUDES/header.php';
     require_once '../INCLUDES/menu.php';
+    require_once '../INCLUDES/titre_page.php';
 
 ?>
     <div class="d-flex m-5">

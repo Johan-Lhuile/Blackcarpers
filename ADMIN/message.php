@@ -22,47 +22,41 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
     $title = 'Mes messages';
     require_once '../INCLUDES/header.php';
     require_once '../INCLUDES/menu.php';
+    require_once '../INCLUDES/titre_page.php';
 }
 
 ?>
 
-<div class="d-flex m-5">
+<div class="flex justify-around items-center">
 
-<?php
-require_once '../INCLUDES/sidebar_admin.php'
+    <?php
+    require_once '../INCLUDES/sidebar_admin.php'
 
-?>
-<div class="main bg-secondary w-75 m-5 rounded-4">
+    ?>
 
-<table class="table_patient">
-    <tbody>
-        <tr>
-            <th scope="row">NOM</th>
-            <th scope="row">EMAIL</th>
-            <th scope="row">TELEPHONE</th>
-            <th scope="row">MESSAGE</th>
-            <th scope="row"></th>
 
-        </tr>
+    <ul role="list" class=" bg-[#36FF24]/50 divide-y divide-gray-100">
         <?php foreach ($contacts as $contact) : ?>
+            <li class="flex justify-between gap-x-6 py-5">
+                <div class="flex min-w-0 gap-x-4">
+                    <div class="min-w-0 flex-auto">
 
-            <tr>
-                <th scope="row"><?= $contact["nameC"] ?></th>
-                <td><?= $contact["emailC"] ?></td>
-                <td><?= $contact["phoneC"] ?></td>
-                <td><?= $contact["message"] ?></td>
-                <td><a href="./ficheMessage.php?id=<?= $contact["idContact"] ?>"><button class="btn btn-primary">Voir</button></a></td>
-            </tr>
+                        <p class="text-sm font-semibold leading-6 text-gray-900"><?= $contact["nameC"] ?></p>
+                        <p class="mt-1 truncate text-xs leading-5 text-gray-800"><?= $contact["emailC"] ?></p>
+                        <p class="mt-1 truncate text-xs leading-5 text-gray-800"><?= $contact["phoneC"] ?></p>
+                    </div>
+                </div>
+                <div class="sm:flex sm:flex-col sm:items-end">
+                    <p class="truncate text-sm leading-6 text-gray-900 "><?= $contact["message"] ?></p>
+                    <a href="./ficheMessage.php?id=<?= $contact["idContact"] ?>"><button class="btn-menu">Voir</button></a>
+                <?php endforeach; ?>
+                </div>
+            </li>
+    </ul>
 
 
-        <?php endforeach; ?>
-
-    </tbody>
-
-</table>
 
 
-</div>
 </div>
 
 <?php

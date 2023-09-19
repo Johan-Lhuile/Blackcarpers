@@ -22,10 +22,10 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
     $title = 'Mes Messages';
     require_once '../INCLUDES/header.php';
     require_once '../INCLUDES/menu.php';
-
+    require_once '../INCLUDES/titre_page.php';
 ?>
 
-    <div class="d-flex ">
+    <div class="flex justify-around items-center ">
 
         <?php
         require_once '../INCLUDES/sidebar_admin.php';

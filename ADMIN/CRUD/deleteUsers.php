@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 
 $idUser = $_GET['id'];
 

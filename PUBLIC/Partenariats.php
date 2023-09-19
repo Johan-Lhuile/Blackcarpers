@@ -1,12 +1,58 @@
-<?php 
-session_start();
-require_once "../INCLUDES/header.php";
-require_once "../INCLUDES/menu.php";
+<?php
+
+    try {
+        require_once '../SRC/connect_BDD.php';
+        $pdo = new PDO($attr, $user, $pass, $opts);
+
+        $sql = " SELECT * FROM partenaires";
+
+        $query = $pdo->query($sql);
+
+        $partenaires = $query->fetchAll();
+    } catch (PDOException $e) {
+        throw new PDOException($e->getMessage());
+    }
+    $title = 'Nos partenaires';
+    require_once '../INCLUDES/header.php';
+    require_once '../INCLUDES/menu.php';
+    require_once '../INCLUDES/titre_page.php';
+
+
 ?>
 
-  <body>
+
+    <ul role="list" class=" bg-[#36FF24]/50 divide-y divide-gray-100">
+        <?php foreach ($partenaires as $partenaire) : ?>
+            <li class="flex justify-between gap-x-20 py-5">
+                <div class="flex min-w-0 gap-x-4">
+                    <div class="min-w-0 flex-auto">
+
+                        <p class="text-sm font-bold leading-6 text-gray-900"><?= $partenaire["nameP"] ?></p>
+                        <p class="mt-1 text-xs leading-5 text-gray-800"><?= $partenaire["emailP"] ?></p>
+                        <p class="mt-1 text-xs leading-5 text-gray-800"><?= $partenaire["phoneP"] ?></p>
+                        <p class="mt-1 text-xs leading-5 text-gray-800"><?= $partenaire["responsable"] ?></p>
+                        <p class="mt-1 text-xs leading-5 text-gray-800"><?= $partenaire["nbTeam"] ?></p>
+                    </div>
+                </div>
+                <div class="sm:flex sm:flex-col sm:items-end">
+                    <p class="text-sm leading-6 text-gray-900"><?= $partenaire["message"] ?></p>
+
+                <?php endforeach; ?>
+                </div>
+            </li>
+    </ul>
+
+
+
+
+</div>
+
+<?php
+require_once '../INCLUDES/footer.php'
+
+?>
     
-    <div class="main-partenaire">
+    <!-- <div class="main-partenaire">
       <div class="main-P">
         <a href="http://fatal-carpe.fr/index.php?"
           ><img
@@ -133,7 +179,7 @@ require_once "../INCLUDES/menu.php";
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
 
 <?php 
 require_once "../INCLUDES/footer.php";

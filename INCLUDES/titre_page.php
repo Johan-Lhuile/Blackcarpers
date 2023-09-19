@@ -1,0 +1,1 @@
+<h2 class="text-white text-4xl font-bold flex justify-center items-center h-40 mb-10 p-3 bg-gradient-to-t from-[#36FF24]/50 to-black/60"><?= $title ?></h2>

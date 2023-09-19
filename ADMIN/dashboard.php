@@ -18,49 +18,54 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
     } catch (PDOException $e) {
         throw new PDOException($e->getMessage());
     }
-    $title = 'Mes Pirates';
+    $title = 'MES PIRATES';
     require_once '../INCLUDES/header.php';
     require_once '../INCLUDES/menu.php';
+    require_once '../INCLUDES/titre_page.php';
 
 ?>
-
-    <div class="d-flex m-5">
+    
+    <div class="flex justify-around items-center">
 
         <?php
         require_once '../INCLUDES/sidebar_admin.php';
         ?>
-        <div class="main bg-secondary w-75 m-5 rounded-4">
 
-            <table class="table_patient">
-                <tbody>
-                    <tr>
-                        <th scope="row">NOM</th>
-                        <th scope="row">PRENOM</th>
-                        <th scope="row">EMAIL</th>
-                        <th scope="row">TELEPHONE</th>
-                        <th scope="row"></th>
+        <main class="bg-gradient-to-t from-[#36FF24]/50 to-black/60 rounded-lg">
+            <div class="row">
 
-                    </tr>
+                <table class="table-auto">
+                    <thead>
+                        <tr>
+                            <th class="text-white border border-white p-4">NOM</th>
+                            <th class="text-white border border-white p-4">PRENOM</th>
+                            <th class="text-white border border-white p-4">EMAIL</th>
+                            <th class="text-white border border-white p-4">TELEPHONE</th>
+                            <th class="text-white border border-white p-4">Consulter</th>
+                        </tr>
+                    </thead>
                     <?php foreach ($users as $user) : ?>
 
-                        <tr>
-                            <th scope="row"><?= $user["name"] ?></th>
-                            <td><?= $user["surname"] ?></td>
-                            <td><?= $user["email"] ?></td>
-                            <td><?= $user["phone"] ?></td>
-                            <td><a href="./ficheMembre.php?id=<?= $user["idUsers"] ?>"><button class="btn btn-primary">Voir</button></a></td>
-
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td class="text-white border border-white p-4"><?= $user["name"] ?></td>
+                                <td class="text-white border border-white p-4"><?= $user["surname"] ?></td>
+                                <td class="text-white border border-white p-4"><?= $user["email"] ?></td>
+                                <td class="text-white border border-white p-4"><?= $user["phone"] ?></td>
+                                <td class=" border border-white p-4"><a href="./ficheMembre.php?id=<?= $user["idUsers"] ?>"><button class="bg-[#36FF24] p-2 rounded-lg text-center font-bold shadow-md shadow-[#36FF24]">Voir</button></a></td>
+                            </tr>
+                        </tbody>
 
 
                     <?php endforeach; ?>
 
-                </tbody>
+                    
 
-            </table>
+                </table>
 
 
-        </div>
+            </div>
+        </main>
 
     </div>
 <?php

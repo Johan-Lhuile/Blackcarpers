@@ -24,7 +24,7 @@ if ($_SESSION['USER']['role'] != 'USER') {
     </div>
 
     <div>
-        <form action="traitement_newPost.php" method="POST" enctype="">
+        <form action="traitement_create_publication.php" method="POST" enctype="">
 
         <legend>Ajouter une publication</legend>
 

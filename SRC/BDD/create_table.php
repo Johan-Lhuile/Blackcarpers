@@ -95,8 +95,8 @@ try {
     $sql = "CREATE TABLE IF NOT EXISTS `EVENEMENTS`(
     idEvenements INT( 10 ) AUTO_INCREMENT PRIMARY KEY,
     dateCreation DATE NULL,
-    titre VARCHAR( 20 ) NOT NULL,
-    lienImages VARCHAR(15) NULL,
+    titre VARCHAR( 50 ) NOT NULL,
+    lienImages VARCHAR(255) NULL
     )";
     
     $pdo->exec($sql);

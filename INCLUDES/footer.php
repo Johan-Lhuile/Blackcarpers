@@ -1,5 +1,5 @@
-<footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4 border-top">
-    <span class="mb-3 mb-md-0 text-body-light">
-        <p>Copyright © 2023 <a href="http://johanlhuile.fr" target="_blank"> Johan Lhuile</a></p>
+<footer class="bg-black h-40 flex items-end ">
+    <span class=" m-auto text-white text-center">
+        <p>Copyright © 2023 BLACKCARPERS <br> Réalisé par: <a href="http://johanlhuile.fr" target="_blank"> Johan Lhuile</a></p>
     </span>
 </footer>
