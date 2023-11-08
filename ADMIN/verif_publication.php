@@ -24,11 +24,12 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
     require_once '../INCLUDES/titre_page.php';
 
 ?>
-    <div class="d-flex m-5">
+    <div class="flex justify-around items-center ">
 
         <?php
         require_once '../INCLUDES/sidebar_admin.php';
         ?>
+
         <div class="main bg-secondary w-75 m-5 rounded-4">
 
             <table class="table_patient">

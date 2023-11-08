@@ -27,39 +27,44 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
 
 ?>
 
-<div class="flex justify-around items-center">
+<div class="mx-auto max-w-6xl flex justify-between items-center">
 
     <?php
-    require_once '../INCLUDES/sidebar_admin.php'
+    require_once '../INCLUDES/sidebar_admin.php';
 
     ?>
 
+<div class="container p-2 mx-auto sm:p-4 text-gray-100 max-w-3xl bg-gradient-to-t from-[#36FF24]/50 to-black/60 rounded-lg divide-y divide-gray-100">
+	<h2 class="mb-4 text-2xl font-semibold leadi">Emails</h2>
+	<div class="flex flex-col overflow-x-auto text-xs">
+		<div class="flex text-left dark:bg-gray-700">
 
-    <ul role="list" class=" bg-[#36FF24]/50 divide-y divide-gray-100">
+			<div class="w-32 px-2 py-3 sm:p-3">Sender</div>
+			<div class="flex-1 px-2 py-3 sm:p-3">Messages</div>
+			<div class="hidden w-24 px-2 py-3 text-right sm:p-3 sm:block">Reçu le :</div>
+		</div>
         <?php foreach ($contacts as $contact) : ?>
-            <li class="flex justify-between gap-x-6 py-5">
-                <div class="flex min-w-0 gap-x-4">
-                    <div class="min-w-0 flex-auto">
+		<div class="flex border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
 
-                        <p class="text-sm font-semibold leading-6 text-gray-900"><?= $contact["nameC"] ?></p>
-                        <p class="mt-1 truncate text-xs leading-5 text-gray-800"><?= $contact["emailC"] ?></p>
-                        <p class="mt-1 truncate text-xs leading-5 text-gray-800"><?= $contact["phoneC"] ?></p>
-                    </div>
-                </div>
-                <div class="sm:flex sm:flex-col sm:items-end">
-                    <p class="truncate text-sm leading-6 text-gray-900 "><?= $contact["message"] ?></p>
-                    <a href="./ficheMessage.php?id=<?= $contact["idContact"] ?>"><button class="btn-menu">Voir</button></a>
-                <?php endforeach; ?>
-                </div>
-            </li>
-    </ul>
-
+			<div class="w-32 px-2 py-3 sm:p-3">
+				<p><?= $contact["nameC"] ?></p>
+			</div>
+			<a href="./ficheMessage.php?id=<?=$contact['idContact']?>">
+			<div class="flex-1 block px-2 py-3 truncate sm:p-3 sm:w-auto"><?= $contact["message"] ?></div>
+			</a>
+			<div class="hidden w-24 px-2 py-3 text-right sm:p-3 sm:block dark:text-gray-400">
+				<p><?= $contact["created_at"] ?></p>
+			</div>
+		</div>
+        <?php endforeach ?>
+	</div>
+</div>
 
 
 
 </div>
 
 <?php
-require_once '../INCLUDES/footer.php'
+require_once '../INCLUDES/footer.php';
 
 ?>

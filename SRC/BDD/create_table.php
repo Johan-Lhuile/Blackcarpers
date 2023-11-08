@@ -75,7 +75,6 @@ try {
     dateCreation DATE NULL,
     titre VARCHAR( 20 ) NOT NULL,
     description VARCHAR( 30 ) NOT NULL,
-    lienImages VARCHAR(15) NULL,
     isVerified BOOL,
     idUsers INT( 10 ) NOT NULL,
     FOREIGN KEY (idUsers) REFERENCES USERS(idUsers)
@@ -96,11 +95,30 @@ try {
     idEvenements INT( 10 ) AUTO_INCREMENT PRIMARY KEY,
     dateCreation DATE NULL,
     titre VARCHAR( 50 ) NOT NULL,
-    lienImages VARCHAR(255) NULL
+    description TEXT NULL
     )";
     
     $pdo->exec($sql);
     echo "table EVENEMENTS créer";
+
+} catch(PDOException $e) {
+    throw new PDOException($e->getMessage(), (int)$e->getCode());
+}
+
+try {
+    $pdo = new PDO($attr, $user, $pass, $opts);
+
+    $sql = "CREATE TABLE IF NOT EXISTS `DOCUMENTS`(
+    idDocuments INT( 10 ) AUTO_INCREMENT PRIMARY KEY,
+    dateCreation DATE NULL,
+    categories VARCHAR( 50 ) NOT NULL,
+    liens TEXT NULL
+    idEvenements INT( 10 ) NOT NULL,
+    FOREIGN KEY (idEvenements) REFERENCES EVENEMENTS(idEvenements)
+    )";
+    
+    $pdo->exec($sql);
+    echo "table DOCUMENTS créer";
 
 } catch(PDOException $e) {
     throw new PDOException($e->getMessage(), (int)$e->getCode());

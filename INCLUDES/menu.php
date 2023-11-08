@@ -1,40 +1,12 @@
-<!-- <header >
-  <nav class="flex justify-around items-center border-2 border-[#36FF24] ">
-    <a href="../PUBLIC/index.php">
-      <img
-        class="m-5"
-        id="logo"
-        src="../MEDIA/logo.png"
-        alt="logo"
-        width="300px"
-        height="200px"
-    /></a>
-
-    <a href="../PUBLIC/Galerie.php">
-      <h2 class="btn-menu">GALERIE</h2>
-    </a>
-
-    <a href="../PUBLIC/Partenariats.php">
-      <h2 class="btn-menu">PARTENARIATS</h2>
-    </a>
-
-    <a href="../PUBLIC/Evenements.php">
-      <h2 class="btn-menu">EVENEMENTS</h2>
-    </a>
-
-    <a href="../PUBLIC/contact.php">
-      <h2 class="btn-menu">CONTACT</h2>
- 
-  </nav>
-</header> -->
-<nav class="bg-[#36FF24]/50">
+<!--header-->
+<nav class="bg-[#36FF24]/50 ">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
         <!-- Mobile menu button-->
         <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
           <span class="absolute -inset-0.5"></span>
-          <span class="sr-only">Open main menu</span>
+          <span class="sr-only ">Open main menu</span>
           <!--
             Icon when menu is closed.
 
@@ -55,28 +27,28 @@
       </div>
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex flex-shrink-0 items-center">
-          <img class="h-8 w-auto" src="../MEDIA/logo.png" alt="Your Company">
+          <a href="../PUBLIC/index.php"><img class="h-12 w-auto" src="../MEDIA/logo.png" alt="Your Company"></a>
         </div>
         <div class="hidden sm:ml-6 sm:block">
-          <div class="flex space-x-4">
+          <div class=" flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="../PUBLIC/Galerie.php" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">GALERIE</a>
-            <a href="../PUBLIC/Partenariats.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">PARTENARIATS</a>
-            <a href="../PUBLIC/Evenements.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">EVENEMENTS</a>
-            <a href="../PUBLIC/contact.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">CONTACT</a>
+            <a href="../PUBLIC/Galerie.php" class=" text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold">GALERIE</a>
+            <a href="../PUBLIC/Partenariats.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold">PARTENARIATS</a>
+            <a href="../PUBLIC/Evenements.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold">EVENEMENTS</a>
+            <a href="../PUBLIC/contact.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold">CONTACT</a>
             <?php
   if(!isset($_SESSION['USER'])){
     echo "<a id='button' href='../PUBLIC/connexion.php'>
-      <h2 class='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'>CONNEXION</h2>
+      <h2 class='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold'>CONNEXION</h2>
     </a>";
   }else{
     if($_SESSION['USER']['role'] === 'USER'){
     echo "<a id='button' href='../USERS\dashboardUsers.php'>
-    <h2 class='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'>Mon Compte</h2>
+    <h2 class='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold'>Mon Compte</h2>
     </a>";
     }else{
     echo "<a id='button' href='../ADMIN\dashboard.php'>
-    <h2 class='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'> ADMIN </h2>
+    <h2 class='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold'> ADMIN </h2>
     </a>";
     }
   }
@@ -85,14 +57,14 @@
           </div>
         </div>
       </div>
-      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+      <!-- <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
         <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
           <span class="absolute -inset-1.5"></span>
           <span class="sr-only">View notifications</span>
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
           </svg>
-        </button>
+        </button> -->
 
         <!-- Profile dropdown -->
         <div class="relative ml-3">
@@ -129,10 +101,28 @@
   <div class="sm:hidden" id="mobile-menu">
     <div class="space-y-1 px-2 pb-3 pt-2">
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+      <a href="../PUBLIC/Galerie.php" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">GALERIE</a>
+      <a href="../PUBLIC/Partenariats.php" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">PARTENARIATS</a>
+      <a href="../PUBLIC/Evenements.php" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">EVENEMENTS</a>
+      <a href="../PUBLIC/contact.php" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">CONTACT</a>
+      <?php
+  if(!isset($_SESSION['USER'])){
+    echo "<a href='../PUBLIC/connexion.php'>
+      <h2 class='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold'>CONNEXION</h2>
+    </a>";
+  }else{
+    if($_SESSION['USER']['role'] === 'USER'){
+    echo "<a id='button' href='../USERS\dashboardUsers.php'>
+    <h2 class='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold'>Mon Compte</h2>
+    </a>";
+    }else{
+    echo "<a id='button' href='../ADMIN\dashboard.php'>
+    <h2 class='text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold'> ADMIN </h2>
+    </a>";
+    }
+  }
+?>   
+      
     </div>
   </div>
 </nav>

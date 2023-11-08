@@ -1,7 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.{html,php,js}"],
+  content: ["./**/*.{html,php}"],
   theme: {
+    fontFamily: {
+      body: ['julee']
+      
+    },
     extend: {},
   },
   plugins: [],

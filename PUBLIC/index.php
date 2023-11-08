@@ -1,14 +1,14 @@
 <?php 
-
+session_start();
 require_once "../INCLUDES/header.php";
 require_once "../INCLUDES/menu.php";
 ?>
 <body>
-    <div class="main-H">
+    <div class="flex justify-center items-center flex-col">
 
-      <p>NOUS SOMMES LES....</p>
+      <p class="text-gray-100 text-4xl font-bold m-12">NOUS SOMMES LES....</p>
       <img src="../MEDIA/logo.png" alt="une photo de notre team" width="50%" />
-      <p>NOUS SOMMES DES INTENABLES</p>
+      <p class="text-gray-100 text-4xl font-bold m-12">NOUS SOMMES DES INTENABLES !!!</p>
     </div>
 <?php 
 require_once "../INCLUDES/footer.php";

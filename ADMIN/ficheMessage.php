@@ -25,26 +25,19 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
     require_once '../INCLUDES/titre_page.php';
 ?>
 
-    <div class="flex justify-around items-center ">
+    <div class="mx-auto max-w-6xl flex justify-between items-center ">
 
         <?php
         require_once '../INCLUDES/sidebar_admin.php';
         ?>
-        <div class="info d-flex flex-column  bg-secondary m-5 rounded-4">
+        <div class="max-w-3xl p-24 bg-gradient-to-t from-[#36FF24]/50 to-black/60 rounded-lg divide-y divide-gray-100">
 
-            <h4 class="m-3">Nom: <?= $contact["nameC"] ?></h4>
-            <h5 class="m-3">Email: <?= $contact["emailC"] ?></h5>
-            <h5 class="m-3">Téléphone: <?= $contact["phoneC"] ?></h5>
-            <p>Message:<?= $contact["message"] ?></p>
+            <h4 class="mt-1 text-lg p-4 leading-5 text-gray-100">Nom: <?= $contact["nameC"] ?></h4>
+            <h5 class="mt-1 text-lg p-4 leading-5 text-gray-100">Email: <?= $contact["emailC"] ?></h5>
+            <h5 class="mt-1 text-lg p-4 leading-5 text-gray-100">Téléphone: <?= $contact["phoneC"] ?></h5>
+            <p class="mt-1 text-lg p-4 leading-5 text-gray-100">Message: <?= $contact["message"] ?></p>
 
         </div>
-
-         <form  class=" d-flex  m-5">
-            <legend>REPONDRE:</legend>
-            <textarea name="repondre" cols="30" rows="10"></textarea>
-            <button type="submit" class="btn btn-primary mt-4">Envoyer</button>
-        </form>
-
     </div>  
 
 <?php

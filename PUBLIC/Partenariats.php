@@ -1,4 +1,5 @@
 <?php
+session_start();
 
     try {
         require_once '../SRC/connect_BDD.php';
@@ -21,21 +22,21 @@
 ?>
 
 
-    <ul role="list" class=" bg-[#36FF24]/50 divide-y divide-gray-100">
+    <ul role="list" class="max-w-4xl mx-auto my-24 bg-[#36FF24]/50 divide-y divide-gray-100">
         <?php foreach ($partenaires as $partenaire) : ?>
-            <li class="flex justify-between gap-x-20 py-5">
+            <li class="flex my-12 rounded-lg justify-between gap-x-20 p-12">
                 <div class="flex min-w-0 gap-x-4">
                     <div class="min-w-0 flex-auto">
 
-                        <p class="text-sm font-bold leading-6 text-gray-900"><?= $partenaire["nameP"] ?></p>
-                        <p class="mt-1 text-xs leading-5 text-gray-800"><?= $partenaire["emailP"] ?></p>
-                        <p class="mt-1 text-xs leading-5 text-gray-800"><?= $partenaire["phoneP"] ?></p>
-                        <p class="mt-1 text-xs leading-5 text-gray-800"><?= $partenaire["responsable"] ?></p>
-                        <p class="mt-1 text-xs leading-5 text-gray-800"><?= $partenaire["nbTeam"] ?></p>
+                        <p class="text-xl font-bold leading-6 text-gray-900"><?= $partenaire["nameP"] ?></p>
+                        <p class="mt-1 text-sm leading-5 text-gray-800"><?= $partenaire["emailP"] ?></p>
+                        <p class="mt-1 text-sm leading-5 text-gray-800"><?= $partenaire["phoneP"] ?></p>
+                        <p class="mt-1 text-sm leading-5 text-gray-800">Responsable: <?= $partenaire["responsable"] ?></p>
+                        <p class="mt-1 text-sm leading-5 text-gray-800">Membres: <?= $partenaire["nbTeam"] ?></p>
                     </div>
                 </div>
                 <div class="sm:flex sm:flex-col sm:items-end">
-                    <p class="text-sm leading-6 text-gray-900"><?= $partenaire["message"] ?></p>
+                    <p class="text-lg leading-6 text-gray-900"><?= $partenaire["message"] ?></p>
 
                 <?php endforeach; ?>
                 </div>

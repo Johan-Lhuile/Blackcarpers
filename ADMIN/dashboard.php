@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$idUser = $_SESSION['USER']['idUsers'];
+
 if ($_SESSION['USER']['role'] != 'ADMIN') {
     header('location: ../PUBLIC/index.php');
     exit;
@@ -10,66 +12,97 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
         require_once '../SRC/connect_BDD.php';
         $pdo = new PDO($attr, $user, $pass, $opts);
 
-        $sql = " SELECT * FROM USERS";
+        $sql = " SELECT * FROM users WHERE idUsers = $idUser ";
 
         $query = $pdo->query($sql);
 
-        $users = $query->fetchAll();
+        $user = $query->fetch();
     } catch (PDOException $e) {
         throw new PDOException($e->getMessage());
     }
-    $title = 'MES PIRATES';
+
+    $title = 'Mon Compte';
     require_once '../INCLUDES/header.php';
     require_once '../INCLUDES/menu.php';
-    require_once '../INCLUDES/titre_page.php';
 
 ?>
-    
-    <div class="flex justify-around items-center">
+
+    <div class="m-auto max-w-7xl flex justify-around items-center">
 
         <?php
-        require_once '../INCLUDES/sidebar_admin.php';
+        require_once '../INCLUDES/sidebar_admin.php'
         ?>
 
-        <main class="bg-gradient-to-t from-[#36FF24]/50 to-black/60 rounded-lg">
-            <div class="row">
-
-                <table class="table-auto">
-                    <thead>
-                        <tr>
-                            <th class="text-white border border-white p-4">NOM</th>
-                            <th class="text-white border border-white p-4">PRENOM</th>
-                            <th class="text-white border border-white p-4">EMAIL</th>
-                            <th class="text-white border border-white p-4">TELEPHONE</th>
-                            <th class="text-white border border-white p-4">Consulter</th>
-                        </tr>
-                    </thead>
-                    <?php foreach ($users as $user) : ?>
-
-                        <tbody>
-                            <tr>
-                                <td class="text-white border border-white p-4"><?= $user["name"] ?></td>
-                                <td class="text-white border border-white p-4"><?= $user["surname"] ?></td>
-                                <td class="text-white border border-white p-4"><?= $user["email"] ?></td>
-                                <td class="text-white border border-white p-4"><?= $user["phone"] ?></td>
-                                <td class=" border border-white p-4"><a href="./ficheMembre.php?id=<?= $user["idUsers"] ?>"><button class="bg-[#36FF24] p-2 rounded-lg text-center font-bold shadow-md shadow-[#36FF24]">Voir</button></a></td>
-                            </tr>
-                        </tbody>
-
-
-                    <?php endforeach; ?>
-
-                    
-
-                </table>
-
+<section class="p-6  text-gray-50">
+	<form action="./CRUD/traitement_profil.php?id=<?= $idUser ?>" method="POST" class="container flex flex-col mx-auto space-y-12">
+		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gradient-to-t from-[#36FF24]/50 to-black/60">
+			<div class="space-y-2 col-span-full lg:col-span-1">
+				<p class="font-medium">Informations personnelles</p>
+				<p class="text-xs">Modifications des infos</p>
+			</div>
+			<div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+				<div class="col-span-full sm:col-span-3">
+					<label for="firstname" class="text-sm">Prénom</label>
+					<input name="firstname" id="firstname" type="text" value="<?=$user['surname']?>" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900">
+				</div>
+				<div class="col-span-full sm:col-span-3">
+					<label for="lastname" class="text-sm">Nom</label>
+					<input name="name" id="lastname" type="text" value="<?=$user['name']?>" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900">
+				</div>
+				<div class="col-span-full sm:col-span-3">
+					<label for="email" class="text-sm">Email</label>
+					<input name="email" id="email" type="email" value="<?=$user['email']?>" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900">
+				</div>
+				<div class="col-span-full sm:col-span-3">
+					<label for="phone" class="text-sm">Téléphone</label>
+					<input name="phone" id="phone" type="text" value="<?=$user['phone']?>" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900">
+				</div>
+				<!-- <div class="col-span-full">
+					<label for="bio" class="text-sm">Photo</label>
+					<div class="flex items-center space-x-2">
+						<img src="../MEDIA/avatar_1699450451139.png" alt="" class="w-10 h-10 rounded-full bg-gray-500 bg-gray-700">
+						<button type="button" class="px-4 py-2 border rounded-md border-gray-100">Change</button>
+					</div>
+				</div> -->
+                <div class="space-y-2">
+                <div>
+                    <button type="submit" class=" px-8 py-3 font-semibold rounded-md bg-green-400 text-gray-900">Modifier</button>
+                </div>
 
             </div>
-        </main>
+			</div>
+		</fieldset>
+		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gradient-to-t from-[#36FF24]/50 to-black/60">
+			<div class="space-y-2 col-span-full lg:col-span-1">
+				<p class="font-medium">Mot de passe</p>
+				<p class="text-xs">Changement de mot de passe</p>
+			</div>
+			<div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+				<div class="col-span-full sm:col-span-3">
+					<label for="pass1" class="text-sm">Mot de passe</label>
+					<input name="pass1" id="pass1" type="password"  class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900">
+				</div>
+				<div class="col-span-full sm:col-span-3">
+					<label for="pass2" class="text-sm">Verification du mot de passe</label>
+					<input name="pass2" id="pass2" type="password"  class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900">
+				</div>
+
+                <div class="space-y-2">
+                <div>
+                    <button type="submit" class=" px-8 py-3 font-semibold rounded-md bg-green-400 text-gray-900">Modifier</button>
+                </div>
+			</div>
+		</fieldset>
+	</form>
+</section>
+
 
     </div>
-<?php
+
+
+
+    <?php
 
     require_once '../INCLUDES/footer.php';
 }
-?>
+    ?>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Julee&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,3 +7,9 @@
 .btn-menu {
     @apply bg-[#36FF24]/80 text-2xl p-2 rounded-lg text-center font-bold shadow-md shadow-[#36FF24];
 }
+
+@layer base {
+    html {
+      font-family: 'Julee';
+    }
+  }
