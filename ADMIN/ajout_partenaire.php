@@ -14,7 +14,7 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
     require_once '../INCLUDES/titre_page.php';
 ?>
 
-    <div class="m-auto max-w-7xl flex justify-around items-center">
+    <div class="flex flex-col justify-around items-center sm:flex-row m-auto max-w-7xl">
 
         <?php
         require_once '../INCLUDES/sidebar_admin.php'
@@ -101,7 +101,7 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
 
 
                     <div>
-                        <button type="submit" class="btn-menu">Ajouter</button>
+                        <button type="submit" class="bg-[#36FF24] p-1 w-full text-black rounded-md text-center font-bold shadow-sm shadow-[#36FF24]">Ajouter</button>
                     </div>
                 </form>
 

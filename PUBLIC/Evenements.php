@@ -27,7 +27,7 @@ session_start();
 
 <?php foreach($evenements as $evenement) :?>
 
-    <section class="p-4 lg:p-8 dark:bg-gray-800 dark:text-gray-100">
+    <section class=" max-w-7xl m-auto p-4 lg:p-8 dark:bg-gray-800 dark:text-gray-100">
 	<div class="container mx-auto space-y-12">
 		<div class="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
 			<img src="<?=$evenement['liens']?>" alt="" class="h-80 dark:bg-gray-500 aspect-video">

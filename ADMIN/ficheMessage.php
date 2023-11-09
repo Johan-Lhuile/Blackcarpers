@@ -25,7 +25,7 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
     require_once '../INCLUDES/titre_page.php';
 ?>
 
-    <div class="mx-auto max-w-6xl flex justify-between items-center ">
+    <div class="flex flex-col justify-around items-center sm:flex-row m-auto max-w-7xl ">
 
         <?php
         require_once '../INCLUDES/sidebar_admin.php';

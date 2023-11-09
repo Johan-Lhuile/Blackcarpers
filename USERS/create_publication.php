@@ -14,7 +14,7 @@ if ($_SESSION['USER']['role'] != 'USER') {
     
 ?>
 
-    <div class="m-auto max-w-7xl flex justify-around items-center sm:flex-row">
+    <div class="flex flex-col justify-around items-center h-full sm:flex-row m-auto max-w-7xl ">
 
         <?php
         require_once '../INCLUDES/sidebar_user.php'
