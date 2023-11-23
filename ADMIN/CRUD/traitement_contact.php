@@ -23,7 +23,7 @@ try {
 
     $query->execute();
 
-
+    $_SESSION['sucess'] = 'Votre email a bien été envoyé';
     header('location:../dashboard.php');
 } catch (PDOException $e) {
     throw new PDOException($e->getMessage(), (int)$e->getCode());

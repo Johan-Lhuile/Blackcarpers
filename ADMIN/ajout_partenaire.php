@@ -14,24 +14,24 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
     require_once '../INCLUDES/titre_page.php';
 ?>
 
-    <div class="flex flex-col justify-around items-center sm:flex-row m-auto max-w-7xl">
+<div class="flex flex-col justify-around items-center m-auto max-w-7xl sm:flex-row sm:h-5/6">
 
         <?php
         require_once '../INCLUDES/sidebar_admin.php'
         ?>
 
 
-        <div class=" bg-gradient-to-t from-[#36FF24]/50 to-black/60 rounded-lg flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+        <div class=" bg-gradient-to-t from-[#36FF24]/50 to-black/60 mb-48 rounded-lg flex flex-col justify-center px-6 py-12 lg:px-8">
             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
                 <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Ajouter un partenaire</h2>
             </div>
 
             <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form class="space-y-6" action="./CRUD/traitement_ajout_partenaire.php" method="POST">
+                <form class="space-y-6" action="./CRUD/traitement_ajout_partenaire.php" method="POST" enctype="multipart/form-data" >
                 <div>
-                        <label for="files" class="block text-sm font-medium leading-6 text-white">Logo</label>
+                        <label for="file" class="block text-sm font-medium leading-6 text-white">Logo</label>
                         <div class="mt-2">
-                            <input id="files" name="logo" type="file" required class="block w-full rounded-md border-0 py-1.5 text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-600 sm:text-sm sm:leading-6">
+                            <input id="logo" name="logo" type="file" required class="block w-full rounded-md border-0 py-1.5 text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div>
@@ -97,8 +97,6 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
                             <textarea id="text" name="message" type="text" required cols="60" rows="10" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-600 sm:text-sm sm:leading-6"></textarea>
                         </div>
                     </div>
-
-
 
                     <div>
                         <button type="submit" class="bg-[#36FF24] p-1 w-full text-black rounded-md text-center font-bold shadow-sm shadow-[#36FF24]">Ajouter</button>

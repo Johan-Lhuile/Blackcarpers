@@ -1,4 +1,5 @@
 <?php
+
 try{
 require_once "../../SRC/security.php";
 
@@ -20,7 +21,7 @@ $query->bindValue(':description', $description, PDO::PARAM_STR);
 $query->execute();
 
 $last_id = $pdo->lastInsertId();
-// var_dump($last_id); die;
+
 
 foreach ($_FILES as $file) {
 
@@ -64,7 +65,7 @@ foreach ($_FILES as $file) {
 
     $newfilename = "../UPLOAD/$newname.$extension";
 
-    $sql = "INSERT INTO documents (liens, categories, fk_id) VALUES (:liens, 'post', $last_id)";
+    $sql = "INSERT INTO documents (liens, fk_id) VALUES (:liens, $last_id)";
     
     $query = $pdo->prepare($sql);
     

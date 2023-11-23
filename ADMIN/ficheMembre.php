@@ -25,12 +25,12 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
     require_once '../INCLUDES/titre_page.php';
 ?>
 
-    <div class="flex flex-col justify-around items-center sm:flex-row m-auto max-w-7xl">
+<div class="flex flex-col justify-around items-center m-auto max-w-7xl sm:flex-row sm:h-5/6">
 
         <?php
         require_once '../INCLUDES/sidebar_admin.php';
         ?>
-        <div class="bg-gradient-to-t p-4 m-auto from-[#36FF24]/50 to-black/60 rounded-lg">
+        <div class="w-full p-4 m-auto bg-gradient-to-t from-[#36FF24]/50 to-black/60 rounded-lg sm:max-w-2xl">
             <div class="px-4 sm:px-0">
                 <h3 class="text-base font-semibold leading-7 text-gray-100">Fiche membres</h3>
                 <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-100">Detail personnel.</p>
@@ -62,7 +62,7 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
                         <dd class="mt-1 text-sm leading-6 text-gray-100 sm:col-span-2 sm:mt-0">
                             <form action="./CRUD/update_point.php?id=<?= $idUser ?>" method="post">
                                 <input class=" text-gray-900 mb-5" type="number" name="points" min="0" max="100" value="<?= $user["points"] ?>">
-                                <button class="flex w-full justify-center rounded-md bg-lime-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-lime-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600" type="submit">Attribuer</button>
+                                <button class="flex justify-center rounded-md bg-lime-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-lime-500 " type="submit">Attribuer</button>
                             </form>
                         </dd>
                     </div>
@@ -82,12 +82,12 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
                                         Administrateur
                                     </label>
                                 </div>
-                                <button class="flex w-full justify-center rounded-md bg-lime-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-lime-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600" type="submit">Valider</button>
+                                <button class="flex justify-center rounded-md bg-lime-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-lime-500 " type="submit">Valider</button>
                         </dd>
                     </div>
                     <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                         <dt class="text-sm font-bold leading-6 text-gray-100">Supprimer ce compte</dt>
-                        <dd class="mt-1 text-sm leading-6 text-gray-100 sm:col-span-2 sm:mt-0"><button class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"><a class="m-auto" href="./CRUD/deleteUsers.php?id=<?= $user["idUsers"] ?>">Supprimer</a></button></dd>
+                        <dd class="mt-1 text-sm leading-6 text-gray-100 sm:col-span-2 sm:mt-0"><button class="inline-flex justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"><a class="m-auto" href="./CRUD/deleteUsers.php?id=<?= $user["idUsers"] ?>">Supprimer</a></button></dd>
                     </div>
                 </dl>
             </div>

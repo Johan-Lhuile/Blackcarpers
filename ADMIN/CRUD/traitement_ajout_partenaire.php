@@ -2,6 +2,41 @@
 try{
 require_once "../../SRC/security.php";
 
+$allowed = [
+    "jpg" => "image/jpeg",
+    "jpeg" => "image/jpeg",
+    "png" => "image/png",
+    "pdf" => "application/pdf"
+];
+
+if($_FILES['logo']['error'] == 0) {
+
+$filenameLogo = $_FILES['logo']["name"];
+$filetypeLogo = $_FILES['logo']["type"];
+$filesizeLogo = $_FILES['logo']["size"];
+
+$extension = pathinfo($filenameLogo, PATHINFO_EXTENSION);
+
+if (!array_key_exists($extension, $allowed) || !in_array($filetypeLogo, $allowed)) {
+    die("Erreur: format de fichier incorrect");
+}
+
+// if ($filesize > 1024 * 1024) {
+//     die("fichier trop volumineux");
+// }
+
+$newnameLogo = uniqid('logo_');
+
+$newfilenameLogo = __DIR__ . "/../../UPLOAD/$newnameLogo.$extension";
+
+if (!move_uploaded_file($_FILES['logo']["tmp_name"], $newfilenameLogo)) {
+    die("telechargement echoué");
+}
+ 
+chmod($newfilenameLogo, 0644);
+
+$newfilenameLogo = "../UPLOAD/$newnameLogo.$extension";
+
 $nameP = protect($_POST['nameP']);
 $emailP = protect(filter_var($_POST['emailP'], FILTER_VALIDATE_EMAIL));
 $phoneP = protect($_POST['phoneP']);
@@ -19,7 +54,7 @@ require_once "../../SRC/connect_BDD.php";
 $pdo = new PDO($attr, $user, $pass, $opts);
 
 
-$sql = "INSERT INTO partenaires (nameP, emailP, phoneP, lienF, lien, dateCreation, adresse, responsable, nbTeam, message) VALUES (:nameP, :emailP, :phoneP, :lienF, :lien, :dateCreation, :adresse, :responsable, :nbTeam, :message)";
+$sql = "INSERT INTO partenaires (nameP, emailP, phoneP, lienF, lien, dateCreation, adresse, responsable, nbTeam, message, logo) VALUES (:nameP, :emailP, :phoneP, :lienF, :lien, :dateCreation, :adresse, :responsable, :nbTeam, :message, :logo)";
 
     $query = $pdo->prepare($sql);
 
@@ -33,14 +68,14 @@ $sql = "INSERT INTO partenaires (nameP, emailP, phoneP, lienF, lien, dateCreatio
     $query->bindValue(":responsable",$responsable, PDO::PARAM_STR);
     $query->bindValue(":nbTeam",$nbTeam, PDO::PARAM_STR);
     $query->bindValue(":message",$message, PDO::PARAM_STR);
+    $query->bindValue(":logo",$newfilenameLogo, PDO::PARAM_STR);
    
 
     $query->execute();
 
-    
 
     header('location:../dashboard.php');
-
+}
 }catch (PDOException $e) {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }

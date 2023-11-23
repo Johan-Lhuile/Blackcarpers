@@ -15,14 +15,14 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
 
 ?>
 
-<div class="flex flex-col justify-around items-center sm:flex-row m-auto max-w-7xl">
+<div class="flex flex-col justify-around items-center m-auto max-w-7xl sm:flex-row sm:h-5/6">
 
         <?php
         require_once '../INCLUDES/sidebar_admin.php';
         ?>
         
-    <div class=" bg-gradient-to-t from-[#36FF24]/50 to-black/60 rounded-lg flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <div class="bg-gradient-to-t from-[#36FF24]/50 to-black/60 rounded-lg flex flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
     <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Ajouter un adhérent</h2>
   </div>
 

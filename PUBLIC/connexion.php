@@ -3,8 +3,8 @@ $title = "Connexion";
 require_once "../INCLUDES/header.php";
 require_once "../INCLUDES/menu.php";
 ?>
-
-<div class="max-w-2xl mx-auto my-24 rounded-lg isolate bg-gradient-to-t from-[#36FF24]/20 to-black/60 px-6 py-24 sm:py-32 lg:px-8">
+<?php require_once "../INCLUDES/message.php"?>
+<div class="max-w-2xl mx-auto rounded-lg isolate bg-gradient-to-t from-[#36FF24]/20 to-black/60 px-6 py-24 sm:py-32 lg:px-8">
   <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
   </div>
   <div class="mx-auto max-w-2xl text-center">

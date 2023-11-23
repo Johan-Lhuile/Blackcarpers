@@ -5,8 +5,8 @@ require_once "../INCLUDES/header.php";
 require_once "../INCLUDES/menu.php";
 ?>
 <body>
-
-<div class="isolate max-w-lg m-auto bg-gradient-to-t from-[#36FF24]/20 to-black/60 px-6 py-24 sm:py-32 lg:px-8">
+<?php require_once "../INCLUDES/message.php"?>
+<div class="isolate max-w-2xl m-auto bg-gradient-to-t from-[#36FF24]/20 to-black/60 px-6 py-24 sm:py-32 lg:px-8">
   <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
   </div>
   <div class="mx-auto max-w-2xl text-center">
@@ -43,7 +43,7 @@ require_once "../INCLUDES/menu.php";
       </div>
     </div>
     <div class="mt-10">
-      <button type="submit" class="block w-full rounded-md bg-[#36FF24]/80 px-3.5 py-2.5 text-center text-sm font-semibold text-gray-100 shadow-sm hover:bg-[#36FF24]/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600">Envoyer</button>
+      <button type="submit" class="block w-full rounded-md bg-[#36FF24]/70 px-3.5 py-2.5 text-center text-sm font-semibold text-gray-100 shadow-sm hover:bg-[#36FF24]/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600">Envoyer</button>
     </div>
   </form>
 </div>

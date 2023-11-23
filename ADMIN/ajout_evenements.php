@@ -15,7 +15,7 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
     require_once '../INCLUDES/titre_page.php';
 ?>
 
-    <div class="flex flex-col justify-around items-center sm:flex-row m-auto max-w-7xl">
+<div class="flex flex-col justify-around items-center m-auto max-w-7xl sm:flex-row sm:h-5/6">
 
         <?php
         require_once '../INCLUDES/sidebar_admin.php';
@@ -24,18 +24,19 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
         <div class=" bg-gradient-to-t from-[#36FF24]/50 to-black/60 rounded-lg flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
             <form action="./CRUD/traitement_newEvenement.php" method="POST" enctype="multipart/form-data">
 
-                <legend class="block text-xl font-medium py-8 text-white">Ajouter un evenements</legend>
+                <legend class="block text-xl font-medium py-8 text-white">Ajouter un evenement</legend>
 
                 <label for="titre" class="block text-lg pb-4 font-medium leading-6 text-white">Titre:</label>
                 <input type="text" name="titre" class="mb-10">
 
+                <label for="image" class="block text-lg pb-4 font-medium leading-6 text-white">Ajouter l'affiche:</label>
+                <input type="file" class="block w-full mb-10 rounded-md border-0 py-1.5 text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-600 sm:text-sm sm:leading-6" name="affiche">
 
-                <label for="image" class="block text-lg pb-4 font-medium leading-6 text-white">Ajouter les documents:</label>
-                <input type="file" class="block w-full mb-10 rounded-md border-0 py-1.5 text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-600 sm:text-sm sm:leading-6" name="image[]" multiple>
+                <label for="image" class="block text-lg pb-4 font-medium leading-6 text-white">Ajouter le dossier d'inscription (.PDF):</label>
+                <input type="file" class="block w-full mb-10 rounded-md border-0 py-1.5 text-gray-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-600 sm:text-sm sm:leading-6" name="docPdf">
 
 
                 <button type="submit" class="bg-[#36FF24] p-1 w-full text-black rounded-md text-center font-bold shadow-sm shadow-[#36FF24]">Valider</button>
-
             </form>
         </div>
 

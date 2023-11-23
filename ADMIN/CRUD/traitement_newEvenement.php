@@ -10,24 +10,7 @@ try {
     require_once "../../SRC/connect_BDD.php";
 
     $pdo = new PDO($attr, $user, $pass, $opts);
-    
-    $sql = "INSERT INTO evenements (titre) VALUES (:titre)";
-
-    $query = $pdo->prepare($sql);
-
-    $query->bindValue(':titre', $titre, PDO::PARAM_STR);
-
-    $query->execute();
-
-    $last_id = $pdo->lastInsertId();
-    // var_dump($last_id); die;
-    
-    foreach ($_FILES as $file) {
-
-        $count = count($file["name"]);
-        for($i = 0; $i < $count; $i++){
-
-       
+         
         $allowed = [
             "jpg" => "image/jpeg",
             "jpeg" => "image/jpeg",
@@ -35,16 +18,19 @@ try {
             "pdf" => "application/pdf"
         ];
 
-        if($file['error'][$i] == 0) {
+        if($_FILES['affiche']['error'] == 0) {
         
-        $filename = $file["name"][$i];
-        $filetype = $file["type"][$i];
-        $filesize = $file["size"][$i];
+        $filenameAffiche = $_FILES['affiche']["name"];
+        $filetypeAffiche = $_FILES['affiche']["type"];
+        $filesizeAffiche = $_FILES['affiche']["size"];
         
+        $filenameDoc = $_FILES['docPdf']["name"];
+        $filetypeDoc = $_FILES['docPdf']["type"];
+        $filesizeDoc = $_FILES['docPdf']["size"];
 
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+        $extension = pathinfo($filenameAffiche, PATHINFO_EXTENSION);
         
-        if (!array_key_exists($extension, $allowed) || !in_array($filetype, $allowed)) {
+        if (!array_key_exists($extension, $allowed) || !in_array($filetypeAffiche, $allowed)) {
             die("Erreur: format de fichier incorrect");
         }
 
@@ -52,29 +38,30 @@ try {
         //     die("fichier trop volumineux");
         // }
 
-        $newname = md5(uniqid());
+        $newnameAffiche = uniqid('affiche_');
 
-        $newfilename = __DIR__ . "/../../UPLOAD/$newname.$extension";
+        $newfilenameAffiche = __DIR__ . "/../../UPLOAD/$newnameAffiche.$extension";
 
-        if (!move_uploaded_file($file["tmp_name"][$i], $newfilename)) {
+        if (!move_uploaded_file($_FILES['affiche']["tmp_name"], $newfilenameAffiche)) {
             die("telechargement echoué");
         }
          
-        chmod($newfilename, 0644);
+        chmod($newfilenameAffiche, 0644);
 
-        $newfilename = "../UPLOAD/$newname.$extension";
+        $newfilenameAffiche = "../UPLOAD/$newnameAffiche.$extension";
 
-        $sql = "INSERT INTO documents (liens, categories, fk_id) VALUES (:liens, 'event', $last_id)";
+        $sql = "INSERT INTO evenements (titre, affiche) VALUES (:titre, :affiche)";
         
         $query = $pdo->prepare($sql);
-        
-        $query->bindValue(":liens", $newfilename, PDO::PARAM_STR);
+
+        $query->bindValue(':titre', $titre, PDO::PARAM_STR);
+        // $query->bindValue(":description", $description, PDO::PARAM_STR);
+        $query->bindValue(":affiche", $newfilenameAffiche, PDO::PARAM_STR);
+        // $query->bindValue(":doc_pdf", $newfilenameDoc, PDO::PARAM_STR);
         
         $query->execute();
         }
-        }
-        }
-
+        
 
     header('location:../dashboard.php');
    

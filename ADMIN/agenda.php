@@ -46,8 +46,8 @@ let evenement = [{
 
 <style>
   #calendar {
-    height: 70vh;
-    width: 80vw;
+    height: 80vh;
+    width: 50vw;
     margin: 50px auto;
     color: white;
   }

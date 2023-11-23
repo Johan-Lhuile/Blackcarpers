@@ -2,7 +2,10 @@
 
 require_once '../INCLUDES/mail.php';
 require_once "../SRC/connect_BDD.php";
-
+if(isset($_POST['email']) && empty($_POST['email'])){
+    $_SESSION['error'] = "Veuillez entrer votre Email";
+    header('Location: ../PUBLIC/index.php');
+}else{
 if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
     $pdo = new PDO($attr, $user, $pass, $opts);
 
@@ -21,7 +24,7 @@ if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
     $token = $users['token'];
 
     if (!$users) {
-        die("Cet email est incorrect");
+        $_SESSION['error'] = "Cet email est incorrect";
 
     }else{
         $url = "http://localhost/blackcarpers/ADMIN/nouveauMDP.php?id=$id&token=$token";
@@ -36,5 +39,5 @@ if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
                         
 
     sendMail($adress, $subject, $message);
-
-}}
+        header('Location: ../PUBLIC/index.php');
+}}}

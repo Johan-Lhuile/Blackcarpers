@@ -1,6 +1,6 @@
 
 
-<div class=" h-full p-3 space-y-2 w-60 rounded-md bg-gradient-to-t  from-[#36FF24]/50 to-black/60 dark:bg-gray-900 text-gray-100">
+<div class="p-3 space-y-2 w-60 mb-10 rounded-md bg-gradient-to-t  from-[#36FF24]/50 to-black/60 dark:bg-gray-900 text-gray-100">
 	<div class="flex items-center p-2 space-x-4">
 		<img src="../MEDIA/avatar_1699450451139.png" alt="" class="w-12 h-12 rounded-full dark:bg-gray-500">
 		<div>
