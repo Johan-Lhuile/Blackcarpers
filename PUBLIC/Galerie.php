@@ -82,10 +82,10 @@ require_once '../INCLUDES/titre_page.php';
 <div class="flex items-center justify-between border-t mt-10 mb-48 max-w-7xl m-auto border-gray-200 bg-[#36FF24]/40 px-4 py-3 sm:px-6">
                 <div class="flex flex-1 justify-between  sm:hidden ">
                     <div class="<?= ($currentPage == 1) ? "hidden" : "" ?>">
-                        <a href="./Galerie.php?page=<?= $currentPage - 1 ?>" class=" relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Précédent</a>
+                        <a href="./galerie.php?page=<?= $currentPage - 1 ?>" class=" relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Précédent</a>
                     </div>
                     <div class="<?= ($currentPage == $pages) ? "hidden" : "" ?>">
-                        <a href="./Galerie.php?page=<?= $currentPage + 1 ?>" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Suivant</a>
+                        <a href="./galerie.php?page=<?= $currentPage + 1 ?>" class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Suivant</a>
                     </div>
                 </div>
                 <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">

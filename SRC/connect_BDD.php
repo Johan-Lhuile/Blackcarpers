@@ -1,10 +1,10 @@
 <?php
 
 try{
-$host = "localhost";
+$host = "localhost";   //johanlr15091985.mysql.db
 $user = "root";
 $pass = "";
-$db   = "Blackcarpers";
+$db   = "blackcarpers";
 $chrs = "utf8mb4";
 
 $attr ="mysql:host=$host;dbname=$db;charset=$chrs";

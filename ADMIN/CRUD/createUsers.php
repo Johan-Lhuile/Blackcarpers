@@ -30,19 +30,18 @@ $sql = "INSERT INTO users (name, surname, email, password, role, token) VALUES (
 
     $query->execute();
 
-    require_once "../../INCLUDES/mail.php";
-    
+       
     $adress = $email;
-    $subject = "Bienvenue mon Intenable; ";
+    $subject = "Bienvenue mon Intenable";
     $message = "Bonjour, $surname $name. 
         
-    Bienvenue sur le site BLACKCARPERS. Vous avez éte rajouté par votre Capitaine.
+    Bienvenue sur le site BLACKCARPERS. Vous avez été rajouté par votre Capitaine.
 
-    Vous pouvez vous connecter avec votre adresse mail et le mot de passe provisoire ci-dessous:<br>
+    Vous pouvez vous connecter avec votre adresse mail et le mot de passe provisoire ci-dessous:
 
                          Mot de passe: $pass";
 
-    sendMail($adress, $subject, $message);
+    mail($adress, $subject, $message);
 
 
     header('location:../dashboard.php');

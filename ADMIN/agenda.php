@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../INCLUDES/header.php';
-require_once '../INCLUDES/menu.php'; 
+require_once '../INCLUDES/menu.php';
 
 ?>
 
@@ -12,14 +12,16 @@ require_once '../INCLUDES/menu.php';
 <script src='../INCLUDES/fullCalendar/packages/google-calendar/index.global.js'></script>
 <script src='../INCLUDES/fullCalendar/packages/interaction/index.global.js'></script>
 <script>
-
-let evenement = [{
-  'title': 'fait chier',
-  'start': '2023-10-06',
-  'end': '2023-10-08'
-}]
   window.onload = () => {
     let calendarEl = document.getElementById('calendar')
+
+    let xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = () => {
+      if (xmlhttp.readyState == 4) {
+        if (xmlhttp.status == 200) {
+
+          let evenements = JSON.parse(xmlhttp.responseText)
 
           let calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
@@ -35,13 +37,18 @@ let evenement = [{
               week: 'Semaine',
               list: 'Liste'
             },
-            events: evenement,
+            events: evenements,
             nowIndicator: true,
             editable: true
           })
           calendar.render()
         }
-      
+
+      }
+    }
+    xmlhttp.open('get', 'http://localhost/blackcarpers/ADMIN/CRUD/getAgenda.php', true);
+    xmlhttp.send(null);
+  }
 </script>
 
 <style>

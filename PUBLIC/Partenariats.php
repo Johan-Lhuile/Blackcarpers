@@ -39,7 +39,7 @@ require_once '../INCLUDES/titre_page.php';
 
         <div class="flex flex-col sm:flex-row">
         <a href="<?= $partenaire["lien"] ?>" target="_blank" rel="noopener noreferrer"><img src="<?= $partenaire["logo"] ?>" alt="" class="object-contain object-center rounded-md h-72"></a>
-        <div class="flex flex-row m-6">
+        <div class="flex flex-row m-6 items-center">
         <a class="m-2 sm:m-6 p-2 font-bold text-gray-100 text-xl border-solid border-2 border-white bg-[#36FF24]/50 rounded-lg hover:bg-[#36FF24]/40" href="<?= $partenaire["lienF"] ?>" target="_blank" rel="noopener noreferrer">Son Facebook</a>
         <a class="m-2 sm:m-6 p-2 font-bold text-gray-100 text-xl border-solid border-2 border-white bg-[#36FF24]/50 rounded-lg hover:bg-[#36FF24]/40" href="<?= $partenaire["lien"] ?>" target="_blank" rel="noopener noreferrer">Sa Boutique </a>
         </div>

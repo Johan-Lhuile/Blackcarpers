@@ -11,7 +11,7 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
         require_once '../SRC/connect_BDD.php';
         $pdo = new PDO($attr, $user, $pass, $opts);
 
-        $sql = " SELECT * FROM USERS WHERE idUsers = $idUser";
+        $sql = " SELECT * FROM users WHERE idUsers = $idUser";
 
         $query = $pdo->query($sql);
 

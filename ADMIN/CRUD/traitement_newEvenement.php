@@ -6,6 +6,12 @@ try {
     require_once "../../SRC/security.php";
 
     $titre = protect($_POST['titre']);
+    $description = protect($_POST['description']);
+    $start = $_POST['start'];
+    $end = $_POST['end'];
+
+
+
 
     require_once "../../SRC/connect_BDD.php";
 
@@ -18,7 +24,7 @@ try {
             "pdf" => "application/pdf"
         ];
 
-        if($_FILES['affiche']['error'] == 0) {
+        if($_FILES['affiche']['error'] == 0 && $_FILES['docPdf']['error'] == 0) {
         
         $filenameAffiche = $_FILES['affiche']["name"];
         $filetypeAffiche = $_FILES['affiche']["type"];
@@ -28,9 +34,13 @@ try {
         $filetypeDoc = $_FILES['docPdf']["type"];
         $filesizeDoc = $_FILES['docPdf']["size"];
 
-        $extension = pathinfo($filenameAffiche, PATHINFO_EXTENSION);
+        $extensionAffiche = pathinfo($filenameAffiche, PATHINFO_EXTENSION);
+        $extensionDoc = pathinfo($filenameDoc, PATHINFO_EXTENSION);
         
-        if (!array_key_exists($extension, $allowed) || !in_array($filetypeAffiche, $allowed)) {
+        if (!array_key_exists($extensionAffiche, $allowed) || !in_array($filetypeAffiche, $allowed)) {
+            die("Erreur: format de fichier incorrect");
+        }
+        if (!array_key_exists($extensionDoc, $allowed) || !in_array($filetypeDoc, $allowed)) {
             die("Erreur: format de fichier incorrect");
         }
 
@@ -39,25 +49,34 @@ try {
         // }
 
         $newnameAffiche = uniqid('affiche_');
+        $newnameDoc = uniqid('Doc_');
 
-        $newfilenameAffiche = __DIR__ . "/../../UPLOAD/$newnameAffiche.$extension";
+        $newfilenameAffiche = __DIR__ . "/../../UPLOAD/$newnameAffiche.$extensionAffiche";
+        $newfilenameDoc = __DIR__ . "/../../UPLOAD/$newnameDoc.$extensionDoc";
 
         if (!move_uploaded_file($_FILES['affiche']["tmp_name"], $newfilenameAffiche)) {
             die("telechargement echoué");
         }
+        if (!move_uploaded_file($_FILES['docPdf']["tmp_name"], $newfilenameDoc)) {
+            die("telechargement echoué");
+        }
          
         chmod($newfilenameAffiche, 0644);
+        chmod($newfilenameDoc, 0644);
 
-        $newfilenameAffiche = "../UPLOAD/$newnameAffiche.$extension";
+        $newfilenameAffiche = "../UPLOAD/$newnameAffiche.$extensionAffiche";
+        $newfilenameDoc = "../UPLOAD/$newnameDoc.$extensionDoc";
 
-        $sql = "INSERT INTO evenements (titre, affiche) VALUES (:titre, :affiche)";
+        $sql = "INSERT INTO evenements (titre, description, affiche, doc_pdf, start, end) VALUES (:titre, :description, :affiche, :doc_pdf, :start, :end)";
         
         $query = $pdo->prepare($sql);
 
         $query->bindValue(':titre', $titre, PDO::PARAM_STR);
-        // $query->bindValue(":description", $description, PDO::PARAM_STR);
+        $query->bindValue(":description", $description, PDO::PARAM_STR);
         $query->bindValue(":affiche", $newfilenameAffiche, PDO::PARAM_STR);
-        // $query->bindValue(":doc_pdf", $newfilenameDoc, PDO::PARAM_STR);
+        $query->bindValue(":doc_pdf", $newfilenameDoc, PDO::PARAM_STR);
+        $query->bindValue(":start", $start, PDO::PARAM_STR);
+        $query->bindValue(":end", $end, PDO::PARAM_STR);
         
         $query->execute();
         }

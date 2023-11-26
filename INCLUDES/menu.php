@@ -12,7 +12,7 @@
 
             Menu open: "hidden", Menu closed: "block"
           -->
-          <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <svg class="block h-6 w-6" id="burger" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
           <!--
@@ -20,20 +20,20 @@
 
             Menu open: "block", Menu closed: "hidden"
           -->
-          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <svg class="hidden h-6 w-6" id="cross" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex flex-shrink-0 items-center">
-          <a href="../PUBLIC/index.php"><img class="h-12 w-auto" src="../MEDIA/logo.png" alt="Your Company"></a>
+          <a href="../index.php"><img class="h-12 w-auto" src="../MEDIA/logo.png" alt="Your Company"></a>
         </div>
         <div class="hidden sm:ml-6 sm:block">
           <div class=" flex space-x-4">
-            <a href="../PUBLIC/Galerie.php" class=" text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold">GALERIE</a>
-            <a href="../PUBLIC/Partenariats.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold">PARTENARIATS</a>
-            <a href="../PUBLIC/Evenements.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold">EVENEMENTS</a>
+            <a href="../PUBLIC/galerie.php" class=" text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold">GALERIE</a>
+            <a href="../PUBLIC/partenariats.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold">PARTENARIATS</a>
+            <a href="../PUBLIC/evenements.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold">EVENEMENTS</a>
             <a href="../PUBLIC/contact.php" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-bold">CONTACT</a>
             <?php
             if (!isset($_SESSION['USER'])) {
@@ -97,12 +97,12 @@
   </div>
 
   <!-- Mobile menu, show/hide based on menu state. -->
-  <div class="sm:hidden" id="mobile-menu">
+  <div class="hidden sm:hidden" id="mobile-menu">
     <div class="space-y-1 px-2 pb-3 pt-2">
 
-      <a href="../PUBLIC/Galerie.php" class=" text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">GALERIE</a>
-      <a href="../PUBLIC/Partenariats.php" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">PARTENARIATS</a>
-      <a href="../PUBLIC/Evenements.php" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">EVENEMENTS</a>
+      <a href="../PUBLIC/galerie.php" class=" text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">GALERIE</a>
+      <a href="../PUBLIC/partenariats.php" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">PARTENARIATS</a>
+      <a href="../PUBLIC/evenements.php" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">EVENEMENTS</a>
       <a href="../PUBLIC/contact.php" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">CONTACT</a>
       <?php
       if (!isset($_SESSION['USER'])) {

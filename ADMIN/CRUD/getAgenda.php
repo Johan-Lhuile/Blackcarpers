@@ -4,14 +4,12 @@ require_once '../../SRC/connect_BDD.php';
 
 $pdo = new PDO($attr, $user, $pass, $opts);
 
-$sql = 'SELECT * FROM Agenda';
+$sql = 'SELECT title, start, end FROM evenements';
 
 $query = $pdo->query($sql);
 
-$agenda = $query->fetchAll();
+$events = $query->fetchAll();
 
-http_response_code(200);
-
-echo json_encode($agenda);
+echo json_encode($events);
 
 ?>
