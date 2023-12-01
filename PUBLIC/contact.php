@@ -13,7 +13,7 @@ require_once "../INCLUDES/menu.php";
     <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Contactez nous</h2>
     <p class="mt-2 text-lg leading-8 text-white">Laissez nous un message, nous vous répondrons dans les plus bref délais.</p>
   </div>
-  <form action="../ADMIN\CRUD\traitement_contact.php" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20">
+  <form action="../ADMIN/CRUD/traitement_contact.php" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20">
     <div class="sm:col-span-2">
       <div>
         <label for="name" class="block text-sm font-semibold leading-6 text-white">Nom et prénom:</label>

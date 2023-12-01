@@ -22,7 +22,7 @@ require_once '../INCLUDES/titre_page.php';
 ?>
 
 <?php foreach ($partenaires as $partenaire) : ?>
-  <div class=" max-w-6xl mx-auto my-24 rounded-lg bg-[#36FF24]/50 divide-x divide-gray-100">
+  <div class=" max-w-6xl mx-auto my-24 rounded-lg bg-[#36FF24]/40">
 
     <div class="flex flex-col sm:flex-row my-8 rounded-lg justify-between gap-x-20 p-6">
 

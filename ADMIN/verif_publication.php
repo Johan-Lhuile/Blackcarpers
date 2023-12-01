@@ -1,11 +1,12 @@
 <?php
 session_start();
-require_once '../SRC/connect_BDD.php';
+
 if ($_SESSION['USER']['role'] != 'ADMIN') {
+    $_SESSION['error'] = "Vous n'avez pas accés à cette page";
     header('location: ../PUBLIC/index.php');
     exit;
 } else {
-
+    require_once '../SRC/connect_BDD.php';
     if (isset($_GET['page']) && !empty($_GET['page'])) {
         $currentPage = (int) strip_tags($_GET['page']);
     } else {
@@ -69,7 +70,7 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
 
                 ?>
                 <?php foreach ($posts as $post) : ?>
-                <form action=""></form>
+                    <form action=""></form>
                     <div class="grid gap-8 grid-cols-1 m-auto md:grid-cols-3 max-w-7xl ">
                         <div class="max-w-xs m-auto p-6 rounded-md shadow-md bg-[#36FF24]/40 text-gray-50">
                             <a href="./verif_post.php?id=<?= $post['idPublications'] ?>"><img src="<?= $post['liens'] ?>" alt="" class=" object-cover object-center rounded-md h-72 bg-gray-500"></a>

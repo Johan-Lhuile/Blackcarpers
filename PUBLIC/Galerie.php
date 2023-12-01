@@ -11,7 +11,7 @@ try {
 
   $pdo = new PDO($attr, $user, $pass, $opts);
 
-  $sql = "SELECT COUNT(*) AS nb_publications FROM publications";
+  $sql = "SELECT COUNT(*) AS nb_publications FROM publications WHERE isVerified = true";
 
   $query = $pdo->prepare($sql);
 

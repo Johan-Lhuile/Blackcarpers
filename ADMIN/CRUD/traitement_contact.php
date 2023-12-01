@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 try {
     require_once "../../SRC/security.php";
 
@@ -24,7 +24,7 @@ try {
     $query->execute();
 
     $_SESSION['sucess'] = 'Votre email a bien été envoyé';
-    header('location:../index.php');
+    header('location:../../PUBLIC/index.php');
 } catch (PDOException $e) {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }

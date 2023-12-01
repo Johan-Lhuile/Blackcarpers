@@ -12,6 +12,7 @@ require_once '../INCLUDES/menu.php';
 <script src='../INCLUDES/fullCalendar/packages/google-calendar/index.global.js'></script>
 <script src='../INCLUDES/fullCalendar/packages/interaction/index.global.js'></script>
 <script>
+  
   window.onload = () => {
     let calendarEl = document.getElementById('calendar')
 

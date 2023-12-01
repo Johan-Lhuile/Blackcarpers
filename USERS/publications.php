@@ -4,6 +4,7 @@ session_start();
 require_once '../SRC/connect_BDD.php';
 
 if ($_SESSION['USER']['role'] != 'USER') {
+    $_SESSION['error'] = "Vous n'avez pas accés à cette page";
     header('location: ../PUBLIC/index.php');
     exit;
 } else {
@@ -63,7 +64,7 @@ if ($_SESSION['USER']['role'] != 'USER') {
 
     <body>
 
-    <div class="flex flex-col  justify-around items-center sm:flex-row m-auto max-w-7xl ">
+    <div class="flex flex-col justify-around items-center sm:flex-row m-auto max-w-7xl ">
 
         <?php
         require_once '../INCLUDES/sidebar_user.php'
@@ -114,7 +115,6 @@ if ($_SESSION['USER']['role'] != 'USER') {
                                 </svg>
                             </a>
                         </div>
-                        <!-- Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" -->
                         <?php for ($page = 1; $page <= $pages; $page++) : ?>
                             <a href="./Galerie.php?page=<?= $page ?>" aria-current="page" class="relative z-10 inline-flex items-center bg-gray-500 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><?= $page ?></a>
                         <?php endfor ?>

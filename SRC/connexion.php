@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 if (isset($_POST['email'], $_POST['pass']) && !empty($_POST['email']) && !empty($_POST['pass'])) {
 
@@ -25,11 +25,11 @@ if (isset($_POST['email'], $_POST['pass']) && !empty($_POST['email']) && !empty(
 
         
         if (!$users || !password_verify($passUser, $users["password"])) {
-            die("L'utilisateur et/ou le mot de passe est incorrect");
+
+            $_SESSION['error'] = "L'utilisateur et/ou le mot de passe est incorrect";
+           header("location: ../PUBLIC/connexion.php");
 
         }else{
-
-        session_start();
 
         $_SESSION["USER"] = [
             "idUsers" => $users["idUsers"],

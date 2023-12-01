@@ -2,6 +2,7 @@
 session_start();
 
 if ($_SESSION['USER']['role'] != 'USER') {
+    $_SESSION['error'] = "Vous n'avez pas accés à cette page";
     header('location: ../PUBLIC/index.php');
     exit;
 } else {
@@ -39,30 +40,30 @@ if ($_SESSION['USER']['role'] != 'USER') {
         ?>
 
 
-<div class="max-w-2xl m-auto p-3 mb-24 rounded-md shadow-md bg-[#36FF24]/40 text-gray-50 ">
+        <div class="max-w-2xl m-auto p-3 mb-24 rounded-md shadow-md bg-[#36FF24]/40 text-gray-50 ">
 
-    <div class="mt-6 mb-2">
-        <section class="py-6 ">
-            <div class="container flex justify-center p-4 mx-auto">
-                <div class="grid gap-4">
-                                <?php foreach ($liens as $lien) : ?>
-                                    <img src="<?= $lien['liens'] ?>" alt="" class="object-cover w-full"> 
-                                    <button class="flex justify-center rounded-md bg-red-600 px-auto py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500"><a class="m-auto" href="./CRUD/deleteImages.php?id=<?= $lien["idDocuments"] ?>">Supprimer</a></button>
-                                <?php endforeach; ?>
-                            </div>
+            <div class="mt-6 mb-2">
+                <section class="py-6 ">
+                    <div class="container flex justify-center p-4 mx-auto">
+                        <div class="grid gap-4">
+                            <?php foreach ($liens as $lien) : ?>
+                                <img src="<?= $lien['liens'] ?>" alt="" class="object-cover w-full">
+                                <button class="flex justify-center rounded-md bg-red-600 px-auto py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500"><a class="m-auto" href="./CRUD/deleteImages.php?id=<?= $lien["idDocuments"] ?>">Supprimer</a></button>
+                            <?php endforeach; ?>
                         </div>
-                    </section>
+                    </div>
+                </section>
 
-                    <input class="rounded-md w-full text-xl text-gray-800 font-semibold tracki" value="<?= $post['titre'] ?>"></input>
-                </div>
-                <textarea class="block mt-8 w-full rounded-md border-0 p-4 text-gray-800" rows="10"><?= $post['description'] ?></textarea>
-                <div>
-                    <button type="submit" class="w-full mt-8 px-8 py-3 font-semibold rounded-md bg-green-400 text-gray-900">Modifier</button>
-                </div>
-
-
+                <input class="rounded-md w-full text-xl text-gray-800 font-semibold tracki" value="<?= $post['titre'] ?>"></input>
             </div>
+            <textarea class="block mt-8 w-full rounded-md border-0 p-4 text-gray-800" rows="10"><?= $post['description'] ?></textarea>
+            <div>
+                <button type="submit" class="w-full mt-8 px-8 py-3 font-semibold rounded-md bg-green-400 text-gray-900">Modifier</button>
+            </div>
+
+
         </div>
+    </div>
     </div>
 
 <?php

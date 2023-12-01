@@ -1,9 +1,11 @@
 <?php 
+session_start();
 $title = "Connexion";
 require_once "../INCLUDES/header.php";
 require_once "../INCLUDES/menu.php";
+
 ?>
-<?php require_once "../INCLUDES/message.php"?>
+
 <div class="max-w-2xl mx-auto rounded-lg isolate bg-gradient-to-t from-[#36FF24]/20 to-black/60 px-6 py-24 sm:py-32 lg:px-8">
   <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
   </div>
@@ -11,6 +13,7 @@ require_once "../INCLUDES/menu.php";
     <h2 class="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl">CONNEXION </h2>
     <p class="mt-2 text-lg leading-8 text-gray-100">Reservée aux membres de l'association</p>
   </div>
+  <?php require_once "../INCLUDES/message.php"; ?>
   <form action="../SRC/connexion.php" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20">
     <div class="sm:col-span-2">
 

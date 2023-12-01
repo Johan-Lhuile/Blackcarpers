@@ -2,6 +2,7 @@
 session_start();
 
 if ($_SESSION['USER']['role'] != 'USER') {
+    $_SESSION['error'] = "Vous n'avez pas accés à cette page";
     header('location: ../PUBLIC/index.php');
     exit;
 } else {
@@ -25,7 +26,7 @@ if ($_SESSION['USER']['role'] != 'USER') {
     require_once '../INCLUDES/titre_page.php';
 ?>
 
-<div class="flex flex-col justify-around items-center m-auto max-w-7xl sm:flex-row sm:h-5/6">
+    <div class="flex flex-col justify-around items-center m-auto max-w-7xl sm:flex-row sm:h-5/6">
 
         <?php
         require_once '../INCLUDES/sidebar_admin.php';

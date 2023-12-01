@@ -1,32 +1,37 @@
 <?php
 session_start();
+if ($_SESSION['USER']['role'] != 'USER') {
+    $_SESSION['error'] = "Vous n'avez pas accés à cette page";
+    header('location: ../PUBLIC/index.php');
+    exit;
+} else {
+    $idDoc = $_GET['id'];
 
-$idDoc = $_GET['id'];
+    try {
+        require_once "../../SRC/connect_BDD.php";
 
-try {
-    require_once "../../SRC/connect_BDD.php";
+        $pdo = new PDO($attr, $user, $pass, $opts);
 
-    $pdo = new PDO($attr, $user, $pass, $opts);
+        $sql = " SELECT liens FROM documents WHERE idDocuments = $idDoc";
 
-    $sql = " SELECT liens FROM documents WHERE idDocuments = $idDoc";
+        $query = $pdo->query($sql);
 
-    $query = $pdo->query($sql);
+        $lien = $query->fetch();
 
-    $lien = $query->fetch();
+        $fichier = '../' . $lien['liens'];
 
-    $fichier = '../'.$lien['liens'];
-
-    unlink($fichier);
-    
+        unlink($fichier);
 
 
-    $query = $pdo->prepare("DELETE FROM documents WHERE idDocuments = :idDoc");
 
-    $query->bindValue(':idDoc', $idDoc, PDO::PARAM_STR);
+        $query = $pdo->prepare("DELETE FROM documents WHERE idDocuments = :idDoc");
 
-    $result = $query->execute();
+        $query->bindValue(':idDoc', $idDoc, PDO::PARAM_STR);
 
-    header('location:../publications.php');
-} catch (PDOException $e) {
-    throw new PDOException($e->getMessage());
+        $result = $query->execute();
+
+        header('location:../publications.php');
+    } catch (PDOException $e) {
+        throw new PDOException($e->getMessage());
+    }
 }

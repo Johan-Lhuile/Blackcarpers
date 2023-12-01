@@ -4,8 +4,9 @@ session_start();
 $idUser = $_SESSION['USER']['idUsers'];
 
 if ($_SESSION['USER']['role'] != 'USER') {
-	header('location: ../PUBLIC/index.php');
-	exit;
+    $_SESSION['error'] = "Vous n'avez pas accés à cette page";
+    header('location: ../PUBLIC/index.php');
+    exit;
 } else {
 
 	try {
@@ -57,13 +58,7 @@ if ($_SESSION['USER']['role'] != 'USER') {
 							<label for="phone" class="text-sm">Téléphone</label>
 							<input name="phone" id="phone" type="text" value="<?= $user['phone'] ?>" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-700 text-gray-900">
 						</div>
-						<!-- <div class="col-span-full">
-					<label for="bio" class="text-sm">Photo</label>
-					<div class="flex items-center space-x-2">
-						<img src="../MEDIA/avatar_1699450451139.png" alt="" class="w-10 h-10 rounded-full bg-gray-500 bg-gray-700">
-						<button type="button" class="px-4 py-2 border rounded-md border-gray-100">Change</button>
-					</div>
-				</div> -->
+
 						<div class="space-y-2">
 							<div>
 								<button type="submit" class=" px-8 py-3 font-semibold rounded-md bg-[#36FF24]/70 text-gray-900">Modifier</button>

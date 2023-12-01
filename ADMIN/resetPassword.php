@@ -2,6 +2,7 @@
 
 require_once '../INCLUDES/mail.php';
 require_once "../SRC/connect_BDD.php";
+
 if(isset($_POST['email']) && empty($_POST['email'])){
     $_SESSION['error'] = "Veuillez entrer votre Email";
     header('Location: ../PUBLIC/index.php');
@@ -38,6 +39,7 @@ if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
 
                         
 
-    sendMail($adress, $subject, $message);
+    mail($adress, $subject, $message);
+    
         header('Location: ../PUBLIC/index.php');
 }}}
