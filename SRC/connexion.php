@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-if (isset($_POST['email'], $_POST['pass']) && !empty($_POST['email']) && !empty($_POST['pass'])) {
+if (isset($_POST['email'], $_POST['pass']) && !empty($_POST['email']) 
+&& !empty($_POST['pass']) && filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)) {
 
     try {
 
@@ -47,4 +48,6 @@ if (isset($_POST['email'], $_POST['pass']) && !empty($_POST['email']) && !empty(
     } catch (PDOException $e) {
         throw new PDOException($e->getMessage(), (int)$e->getCode());
     }
+} else{
+    $_SESSION['error'] = "Veuillez entrer un email valide";
 }

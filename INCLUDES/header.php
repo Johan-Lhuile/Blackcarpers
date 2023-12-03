@@ -12,3 +12,4 @@
     <script src="../PUBLIC/app.js" defer></script>
   </head>
 
+<?php require 'loader.php'; ?>

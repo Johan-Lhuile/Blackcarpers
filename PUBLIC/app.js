@@ -1,9 +1,11 @@
 // -------------------------------LOADER------------------------------------
 
-const loader = document.querySelector(".loader");
+let loader = document.querySelector(".loader");
 
 window.addEventListener("load", () => {
   loader.classList.add("fondu-out");
+  
+
 });
 
 // --------------------------------MENU-------------------------------------
