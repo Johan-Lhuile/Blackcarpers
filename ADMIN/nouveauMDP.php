@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $id = $_GET['id'];
 $token = $_GET['token'];
@@ -85,5 +86,12 @@ if ($users) {
         $query->bindValue(':token', $token, PDO::PARAM_STR);
 
         $query->execute();
+
+        $_SESSION['sucess'] = 'Mot de passe modifié';
+
+        header('location: ../PUBLIC/connexion.php');
     }
+}else{
+    $_SESSION['error'] = 'Erreur page introuvable';
+    header('location: ../PUBLIC/connexion.php');
 }

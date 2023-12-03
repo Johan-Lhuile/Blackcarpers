@@ -2,7 +2,7 @@
 session_start();
 if ($_SESSION['USER']['role'] != 'ADMIN') {
     $_SESSION['error'] = "Vous n'avez pas accés à cette page";
-    header('location: ../PUBLIC/index.php');
+    header('location: ../../PUBLIC/index.php');
     exit;
 } else {
 

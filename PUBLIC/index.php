@@ -5,7 +5,7 @@ require_once "../INCLUDES/menu.php";
 ?>
 <body>
   <?php require_once "../INCLUDES/message.php"?>
-    <div class="flex justify-center items-center flex-col">
+    <div class="flex justify-center items-center flex-col mb-12">
 
       <p class="text-gray-100 text-4xl font-bold m-12">NOUS SOMMES LES....</p>
       <img src="../MEDIA/logo.png" alt="une photo de notre team" width="50%" />
@@ -13,7 +13,7 @@ require_once "../INCLUDES/menu.php";
     </div>
 <?php 
 require_once "../INCLUDES/footer.php";
-
 ?>
+
 </body>
 </html>

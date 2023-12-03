@@ -25,7 +25,7 @@ if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
     $token = $users['token'];
 
     if (!$users) {
-        $_SESSION['error'] = "Cet email est incorrect";
+        $_SESSION['error'] = "Ce email est incorrect";
 
     }else{
         $url = "http://localhost/blackcarpers/ADMIN/nouveauMDP.php?id=$id&token=$token";
@@ -39,7 +39,7 @@ if(isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
 
                         
 
-    mail($adress, $subject, $message);
+    sendmail($adress, $subject, $message);
     
         header('Location: ../PUBLIC/index.php');
 }}}

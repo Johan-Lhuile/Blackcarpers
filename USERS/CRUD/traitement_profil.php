@@ -3,7 +3,7 @@ session_start();
 $id = $_SESSION['USER']['idUsers'];
 if ($_SESSION['USER']['role'] != 'USER') {
     $_SESSION['error'] = "Vous n'avez pas accés à cette page";
-    header('location: ../PUBLIC/index.php');
+    header('location: ../../PUBLIC/index.php');
     exit;
 } else {
     require_once '../../SRC/security.php';

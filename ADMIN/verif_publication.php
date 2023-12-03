@@ -15,7 +15,7 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
 
     $pdo = new PDO($attr, $user, $pass, $opts);
 
-    $sql = "SELECT COUNT(*) AS nb_publications FROM publications ";
+    $sql = "SELECT COUNT(*) AS nb_publications FROM publications WHERE isVerified = false ";
 
     $query = $pdo->prepare($sql);
 
@@ -73,7 +73,7 @@ if ($_SESSION['USER']['role'] != 'ADMIN') {
                     <form action=""></form>
                     <div class="grid gap-8 grid-cols-1 m-auto md:grid-cols-3 max-w-7xl ">
                         <div class="max-w-xs m-auto p-6 rounded-md shadow-md bg-[#36FF24]/40 text-gray-50">
-                            <a href="./verif_post.php?id=<?= $post['idPublications'] ?>"><img src="<?= $post['liens'] ?>" alt="" class=" object-cover object-center rounded-md h-72 bg-gray-500"></a>
+                            <img src="<?= $post['liens'] ?>" alt="" class=" object-cover object-center rounded-md h-72 bg-gray-500">
                             <div class="mt-6 mb-2">
                                 <span class="block text-xs font-medium tracki uppercase dark:text-violet-400"><?= $users['surname'] ?></span>
                                 <input class="rounded-md w-full text-xl text-gray-800 font-semibold tracki" value="<?= $post['titre'] ?>"></input>
